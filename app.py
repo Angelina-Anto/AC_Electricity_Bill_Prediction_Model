@@ -3,7 +3,7 @@ import joblib
 from sklearn.preprocessing import PolynomialFeatures
 
 model = joblib.load("Ac_Electricity_Bill_Prediction.pkl")
-st.title("Electricity Bill prediction Based on AC Units")
+st.title("Electricity Bill prediction Based on AC and Fan Units")
 ac_units = st.number_input("Enter AC Units: ", min_value = 0.0, value = 100.0)
 fan_units = st.number_input("Enter Fan Units: ", min_value = 0.0, value = 100.0)
 if st.button("Predict"):
