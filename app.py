@@ -4,11 +4,11 @@ from sklearn.preprocessing import PolynomialFeatures
 
 model = joblib.load("Ac_Electricity_Bill_Prediction.pkl")
 st.title("Electricity Bill prediction Based on AC and Fan Units")
-ac_units = st.number_input("Enter AC Units: ", min_value = 0.0, value = 100.0)
+ac_units = st.number_input("Enter AC Units: ", min_value = 0.0, value = 500.0)
 fan_units = st.number_input("Enter Fan Units: ", min_value = 0.0, value = 100.0)
 if st.button("Predict"):
   poly = PolynomialFeatures()
   X_poly = poly.fit_transform([[ac_units, fan_units]])
   prediction = model.predict(X_poly)
-  st.success(f"Predicted Electricity Bill: {prediction[0]:.2f}")
+  st.success(f"Predicted Electricity Bill: {abs(prediction[0]):.2f}")
   
