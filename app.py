@@ -9,4 +9,5 @@ if st.button("Predict"):
   poly = PolynomialFeatures()
   ac_units_poly = poly.fit_transform([[ac_units]])
   prediction = model.predict(ac_units_poly)
+  st.success(f"Predicted Electricity Bill: {prediction[0]:.2f}")
   
